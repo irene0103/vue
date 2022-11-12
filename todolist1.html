@@ -5,16 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>vue2</title>
+    <style>
+        .del{
+            margin-left: 50px;
+        }
+    </style>
+
 </head>
 <body>
     <div id="app">
-        <h1>To do list</h1>
+        <h1>To-do List</h1>
         <input type="text" placeholder="type..." v-model="toDoText">
         <button type="button" @click="createItem">Add</button>
         <div>
             <p v-for="(item, index) in list">
                 {{index+1}}. {{item}}
-                <button type="button" @click="deleteItem">delete</button>
+                <button class="del" type="button" @click="deleteItem">delete</button>
             </p>
         </div>
         <hr>
