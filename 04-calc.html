@@ -5,26 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+
+    </style>
 </head>
 <body>
     <div id="app">
-        <button 
-        v-for="num in 9"
-        :key="num"
-        @click="keyin = num"
-        >
-            {{num}}
-        </button>
-        <button>0</button>
-        <button @click="reduceCount">-</button>
-        <button @click="addCount">+</button>
-        <button @click="calc">=</button>
-        <button @click="clear">C</button>
-        <div>
-            step:{{step}}
-        </div>
+            <p>{{result}}</p>
+            <button @click="clear">C</button>
+            <button @click="">X</button>
+            <button @click="">/</button>
+            <button @click="reduceCount">-</button>
+            <button @click="addCount">+</button>
+            <button @click="calc">=</button>
+            <button 
+            v-for="num in 9"
+            :key="num"
+            @click="keyin = num"
+            >
+                {{num}}
+            </button>
+            <button class="zero">0</button>
 
-        <h6>{{result}}</h6>
+
     </div>
 
     <script src="https://unpkg.com/vue@next"></script>

@@ -21,9 +21,14 @@
         <!-- 變數 in 物件/陣列 -->
         <div class="pagination">
             <button v-for="page in 10" :key="page">{{page}}</button>
+            <!-- 若不設定 key 值，不會重新渲染元素，只會部份更新 -->
         </div>
+
         <div class="productContainer">
             <div v-for="(item, index) in product" :key="item.id">
+                <!-- 第二個參數 index 是索引值 (optional) -->
+                <!-- (陣列裡的person, 索引值index) -->
+                
                 <p>{{item.title}}</p>
                 <img :src="item.image" :alt="item.title">
                 <h6>${{item.price}}</h6>
@@ -88,6 +93,7 @@
                 // (2)
                 for(item in this.product){
                     this.count.push(0)
+                    // push()：新增元素
                 }
             },
             
