@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1</title>
+</head>
+<body>
+
+    <div id="app">
+        <form 
+            action="" 
+        >
+            <div 
+                @mouseover="formHover = true" 
+                @mouseleave="formHover = false"
+                :style="{
+                    background: activeColor? activeColor: '#ddd',
+                    borderColor: formHover? 'red': 'blue',
+                }"
+                class="pic" 
+            >
+                
+            </div>
+          
+            <div>
+                <input type="color" v-model="activeColor" value="">
+                <button style="background-color:red; width:50px; height:50px;" v-model="activeColor" value=""></button>
+                <button v-model="activeColor" value=""></button>
+                <button v-model="activeColor" value=""></button>
+                <button v-model="activeColor" value=""></button>
+                <button v-model="activeColor" value=""></button>
+                <button v-model="activeColor" value=""></button>
+                <button v-model="activeColor" value=""></button>
+                <button v-model="activeColor" value=""></button>
+                <button v-model="activeColor" value=""></button>
+                <button v-model="activeColor" value=""></button>
+            </div>
+            
+        </form>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        //新增一個應用application→建立Vue實體(instance)
+        Vue.createApp({
+            data(){
+                return {
+                    formHover: false,
+                    activeColorcolor: '',
+                }
+            }
+        }).mount("#app")//並掛載(mount)在網頁結點上(id="app")
+    </script>
+</body>
+</html>
+<style>
+    .pic{
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border: 2px solid #111;
+        overflow: hidden;
+    }
+    
+</style>

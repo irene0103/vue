@@ -5,65 +5,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>vue2</title>
+    <style>
+        .del{
+            margin-left: 50px;
+        }
+    </style>
+
 </head>
 <body>
     <div id="app">
-        <input type="text" v-model="toDoText">
-        <button type="button" @click="addTodo()">新增</button>
-        <ul>
-            <li v-for="(item, index) in list" :key="index">
-                {{index+1}}.{{item}}
-                <button type="button" @click="removeTodo(index)">X</button>
-            </li>
-
-        </ul>
-        <!-- <button @click="doneAll">全部完成</button> -->
+        <h1>To-do List</h1>
+        <input type="text" placeholder="type..." v-model="toDoText">
+        <button type="button" @click="createItem">Add</button>
+        <div>
+            <p v-for="(item, index) in list">
+                {{index+1}}. {{item}}
+                <button class="del" type="button" @click="deleteItem">delete</button>
+            </p>
+        </div>
         <hr>
-        <!-- <h6>Done</h6>
-        <ul>
-            <li v-for="(item, index) in doneList" :key="index">
-                {{item.name}}
-            </li>
-        </ul> -->
-        <button @click="clearAll">全部刪除</button>
-        <!-- <button @click="clearSelect">刪除完成項目(刪除選取)</button> -->
+        <button @click="clearAll">Delete all</button>
     </div>
     <script src="https://unpkg.com/vue@next"></script>
     <script>
-        Vue.createApp({ 
+        Vue.createApp({
             data(){
                 return {
                     toDoText: '',
                     list: [],
                 }
             },
-            // computed:{
-            //     doneList(){
-            //         return this.list.filter(item => item.select)
-            //     }
-            // },
             methods: {
-                addTodo(){
+                createItem(){
                     this.list.push(this.toDoText);
                     this.toDoText = '';
                 },
-                removeTodo(index){
+                deleteItem(index){
                     this.list.splice(index,1);
                 },
-                // doneAll(){
-                //     this.list = this.list.map(item => {
-                //         return {
-                //             ...item,
-                //             select: true
-                //         }
-                //     })
-                // },
                 clearAll(){
-                    this.list = []
+                    this.list = [];
                 },
-                // clearSelect(){
-                //     this.list = this.list.filter(item => !item.select)
-                // }
             },
         }).mount("#app")
     </script>
