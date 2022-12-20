@@ -7,22 +7,33 @@
     <title>Document</title>
     <style>
         body{
-            background-color: rgb(248, 221, 153);
+            background-color: rgb(205, 227, 255);
         }
         ul{
             list-style: none;
+            display: flex;
+            flex-wrap: wrap;
         }
         li{
-            width: 90%;
-            height: 100%;
-            margin: 10px;
-            border: 1px solid #aaa;
+            width: 20%;
+            padding: 6px 0;
+            margin: 15px;
+            border: none;
             text-align: center;
+            border-radius: 20px;
+            box-shadow: 2px 2px 1px rgb(226, 181, 105);
             background-color: antiquewhite;
+            transform: translate(0,0);
+            transition: all .2s cubic-bezier(.15,.62,.43,.8);
+        }
+        li:hover{
+            box-shadow:0 0;
+            transform:translate(3px,3px);
         }
         a{
             font-size: 30px;
             text-decoration: none;
+            color: black;
         }
     </style>
     
